@@ -21,24 +21,26 @@
 
 ## items テーブル
 
-| Column        | Type       | Option                        |
-| ------------- | ---------- | ----------------------------- |
-| name          | string     | null: false                   |
-| content       | text       | null: false                   |
-| price         | integer    | null: false                   |
-| user          | references | null: false foreign_key: true |
-| category      | integer    | null: false                   |
-| shipping_fee  | integer    | null: false                   |
-| prefectures   | integer    | null: false                   |
-| shipping_time | integer    | null: false                   |
+| Column           | Type       | Option                        |
+| ---------------- | ---------- | ----------------------------- |
+| name             | string     | null: false                   |
+| content          | text       | null: false                   |
+| price            | integer    | null: false                   |
+| user             | references | null: false foreign_key: true |
+| category_id      | integer    | null: false                   |
+| condition_id     | integer    | null: false                   |
+| shipping_fee_id  | integer    | null: false                   |
+| prefecture_id    | integer    | null: false                   |
+| shipping_time_id | integer    | null: false                   |
 
 ### Association
 
 - belongs_to :user
 - has_one :purchase
 - belongs_to_active_hash :category
+- belongs_to_active_hash :condition
 - belongs_to_active_hash :shipping_fee
-- belongs_to_active_hash :prefectures
+- belongs_to_active_hash :prefecture
 - belongs_to_active_hash :shipping_time
 
 
@@ -61,7 +63,7 @@
 | Column        | Type       | Option                        |
 | ------------- | ---------- | ----------------------------- |
 | zip_code      | string     | null: false                   |
-| prefectures   | integer    | null: false,                  |
+| prefecture_id | integer    | null: false,                  |
 | city          | string     | null: false                   |
 | address_line1 | string     | null: false                   |
 | address_line2 | string     |                               |
@@ -71,4 +73,4 @@
 ### Association
 
 - belongs_to :purchase
-- belongs_to_active_hash :prefectures
+- belongs_to_active_hash :prefecture
