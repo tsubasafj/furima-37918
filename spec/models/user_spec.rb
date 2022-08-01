@@ -31,14 +31,17 @@ RSpec.describe User, type: :model do
       it 'passwordが5文字以下では登録できない' do
 
       end
-      it 'passwordは半角英数字混合でないと登録できない' do
+      it 'passwordは半角数字だけでは登録できない' do
+
+      end
+      it 'passwordはアルファベットだけでは登録できない' do
 
       end
       it 'passwordとpassword_confirmationが不一致では登録できない' do
 
       end
       it 'passwordが129文字以上では登録できない' do
-        
+
       end
       it 'お名前(全角)は名字が空では登録できない' do
         
