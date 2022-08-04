@@ -5,4 +5,10 @@ class ItemsController < ApplicationController
   def new
     @item = Item.new
   end
+
+  private
+
+  def item_params
+    params.require(:item).permit(:name, :content, :price, :category_id, :condition_id, :shipping_fee_id, :prefecture_id, :shipping_time_id).merge(user_id: current_user.id)
+  end
 end
