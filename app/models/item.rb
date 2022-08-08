@@ -10,8 +10,9 @@ class Item < ApplicationRecord
   belongs_to :prefecture
   belongs_to :shipping_time
 
-  validates :name, presence: true
-  validates :content, presence: true
+  validates :image, presence: true
+  validates :name, presence: true, length: { maximum: 40 }
+  validates :content, presence: true, length: { maximum: 1000 }
   validates :category_id, numericality: { other_than: 1 }
   validates :condition_id, numericality: { other_than: 1 }
   validates :shipping_fee_id, numericality: { other_than: 1 }
