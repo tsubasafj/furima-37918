@@ -3,10 +3,10 @@ function profitCalculate (){
   itemPrice.addEventListener("input", () => {
     
     const addTaxDom = document.getElementById("add-tax-price");
-    addTaxDom.innerHTML = Math.round(itemPrice.value * 0.1);
+    addTaxDom.innerHTML = Math.floor(itemPrice.value * 0.1);
 
     const addProfitDom = document.getElementById("profit");
-    addProfitDom.innerHTML = Math.round(itemPrice.value - Math.round(itemPrice.value * 0.1));
+    addProfitDom.innerHTML = Math.floor(itemPrice.value - Math.floor(itemPrice.value * 0.1));
   });
 };
 
