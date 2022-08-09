@@ -20,5 +20,6 @@ class Item < ApplicationRecord
   validates :shipping_time_id, numericality: { other_than: 1 }
 
   VALID_PRICE_REGEX = /\A[0-9]+\z/
-  validates :price, presence: true, format: { with: VALID_PRICE_REGEX }, numericality: { in: 300..9_999_999 }
+  validates :price, presence: true, format: { with: VALID_PRICE_REGEX },
+                    numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999 }
 end
