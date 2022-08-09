@@ -37,30 +37,30 @@ RSpec.describe Item, type: :model do
         @item.valid?
         expect(@item.errors.full_messages).to include 'Content is too long (maximum is 1000 characters)'
       end
-      it 'categoryが空では出品できない' do
-        @item.category_id = ''
+      it 'categoryが「---」では出品できない' do
+        @item.category_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include 'Category is not a number'
+        expect(@item.errors.full_messages).to include 'Category must be other than 1'
       end
-      it 'conditionが空では出品できない' do
-        @item.condition_id = ''
+      it 'conditionが「---」では出品できない' do
+        @item.condition_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include 'Condition is not a number'
+        expect(@item.errors.full_messages).to include 'Condition must be other than 1'
       end
-      it 'shipping_feeが空では出品できない' do
-        @item.shipping_fee_id = ''
+      it 'shipping_feeが「---」では出品できない' do
+        @item.shipping_fee_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include 'Shipping fee is not a number'
+        expect(@item.errors.full_messages).to include 'Shipping fee must be other than 1'
       end
-      it 'prefectureが空では出品できない' do
-        @item.prefecture_id = ''
+      it 'prefectureが「---」では出品できない' do
+        @item.prefecture_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include 'Prefecture is not a number'
+        expect(@item.errors.full_messages).to include 'Prefecture must be other than 1'
       end
-      it 'shipping_timeが空では出品できない' do
-        @item.shipping_time_id = ''
+      it 'shipping_timeが「---」では出品できない' do
+        @item.shipping_time_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include 'Shipping time is not a number'
+        expect(@item.errors.full_messages).to include 'Shipping time must be other than 1'
       end
       it 'priceが空では出品できない' do
         @item.price = ''
