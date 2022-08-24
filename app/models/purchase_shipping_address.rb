@@ -7,7 +7,7 @@ class PurchaseShippingAddress
     validates :item_id
 
     VALID_ZIPCODE_REGEX = /\A[0-9]{3}-[0-9]{4}\z/
-    validates :zip_code, format: { with: VALID_ZIPCODE_REGEX }
+    validates :zip_code, format: { with: VALID_ZIPCODE_REGEX}
 
     validates :prefecture_id, numericality: { other_than: 1 }
     validates :city
