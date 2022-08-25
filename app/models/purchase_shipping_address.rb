@@ -1,6 +1,6 @@
 class PurchaseShippingAddress
   include ActiveModel::Model
-  attr_accessor :user_id, :item_id, :zip_code, :prefecture_id, :city, :address_line1, :address_line2, :phone_number, :purchase_id
+  attr_accessor :user_id, :item_id, :zip_code, :prefecture_id, :city, :address_line1, :address_line2, :phone_number, :purchase_id, :token
 
   with_options presence: true do
     validates :user_id
@@ -15,6 +15,8 @@ class PurchaseShippingAddress
 
     VALID_PHONENUMBER_REGEX = /\A[0-9]{10,11}\z/
     validates :phone_number, format: { with: VALID_PHONENUMBER_REGEX} 
+
+    validates :token
   end
 
   def save
