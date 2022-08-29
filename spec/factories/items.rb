@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :item do
-    name { Faker::Lorem.sentence }
+    name { Faker::Name.name }
     content { Faker::Lorem.sentence }
     category { Category.where.not(id: 1).sample }
     condition { Condition.where.not(id: 1).sample }
