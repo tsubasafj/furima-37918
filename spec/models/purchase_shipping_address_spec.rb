@@ -50,12 +50,12 @@ RSpec.describe PurchaseShippingAddress, type: :model do
         @purchase_shipping_address.valid?
         expect(@purchase_shipping_address.errors.full_messages).to include "Phone number can't be blank"
       end
-      it 'phone_numberは11桁以上では保存できない' do
+      it 'phone_numberは12桁以上では保存できない' do
         @purchase_shipping_address.phone_number = '090123456789'
         @purchase_shipping_address.valid?
         expect(@purchase_shipping_address.errors.full_messages).to include 'Phone number is invalid'
       end
-      it 'phone_numberは10桁以下では保存できない' do
+      it 'phone_numberは9桁以下では保存できない' do
         @purchase_shipping_address.phone_number = '090123456'
         @purchase_shipping_address.valid?
         expect(@purchase_shipping_address.errors.full_messages).to include 'Phone number is invalid'
